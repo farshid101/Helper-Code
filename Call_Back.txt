@@ -1,4 +1,6 @@
 # Remember to inherit from the correct class
+# For accuracy to stop 
+------------------------------------------------
 class myCallback(tf.keras.callbacks.Callback):
       
         # Define the correct function signature for on_epoch_end
@@ -8,3 +10,24 @@ class myCallback(tf.keras.callbacks.Callback):
                 
                 # Stop training once the above condition is met
                 self.model.stop_training = True
+-------------------------------------------------------
+# For loss to stop
+
+class myCallback(tf.keras.callbacks.Callback):
+  def on_epoch_end(self, epoch, logs={}):
+    '''
+    Halts the training after reaching 60 percent accuracy
+
+    Args:
+      epoch (integer) - index of epoch (required but unused in the function definition below)
+      logs (dict) - metric results from the training epoch
+    '''
+
+    # Check accuracy
+    if(logs.get('loss') < 0.4):
+
+      # Stop if threshold is met
+      print("\nLoss is lower than 0.4 so cancelling training!")
+      self.model.stop_training = True
+---------------------------------------------------------
+
