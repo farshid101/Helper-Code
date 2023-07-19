@@ -3,3 +3,5 @@ In this repository , some helpful function or sheet or some cheat sheet will upl
 
 * callback  code 
 * Visualizing the Convolutions and Pooling code
+* Exploring Convolutions
+
