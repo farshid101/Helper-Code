@@ -1,0 +1,19 @@
+#Data balancing
+
+import imblearn
+from imblearn.over_sampling import RandomOverSampler
+from imblearn.over_sampling import SMOTE
+
+# from imblearn.under_sampling import RandomUnderSampler
+# from imblearn.over_sampling import RandomOverSampler
+from collections import Counter
+oversample = RandomOverSampler(random_state=0)
+X, y = oversample.fit_resample(x_scaled, y)
+# summarize distribution
+counter = Counter(y)
+for k,v in counter.items():
+	per = v / len(y) * 100
+	print('Class=%d, n=%d (%.3f%%)' % (k, v, per))
+# plot the distribution
+plt.bar(counter.keys(), counter.values())
+plt.show()
