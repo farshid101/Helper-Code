@@ -1,0 +1,17 @@
+***
+To convert your dataset into a tensor for TensorFlow, you first need to import the TensorFlow library and then load your dataset into a NumPy array or a Pandas DataFrame. Once you have your data in a suitable format, you can convert it to a TensorFlow tensor using the tf.convert_to_tensor() function.
+***
+import tensorflow as tf
+import pandas as pd
+
+# Assuming you have loaded your dataset into a Pandas DataFrame called 'df'
+# If you have your data in a NumPy array, you can directly use it instead of a DataFrame
+
+# Convert the DataFrame to a NumPy array
+data_np = df.to_numpy()
+
+# Create a TensorFlow tensor from the NumPy array
+data_tensor = tf.convert_to_tensor(data_np, dtype=tf.float32)  # Adjust the dtype as needed
+
+
+//end code
